@@ -10,6 +10,8 @@ import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 
+import static org.springframework.samples.petclinic.Util.doWait;
+
 @Component
 public class CatFactClient {
 	private final ObjectMapper objectMapper;
@@ -20,6 +22,7 @@ public class CatFactClient {
 
 	@Trace
 	public CatFact fetchCatFact() {
+		doWait(50);
 		try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
 			HttpGet get = new HttpGet("https://catfact.ninja/fact");
 			try (CloseableHttpResponse response = httpClient.execute(get)) {

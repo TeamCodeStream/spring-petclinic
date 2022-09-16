@@ -6,6 +6,8 @@ import org.springframework.samples.petclinic.api.PetFactService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import static org.springframework.samples.petclinic.Util.doWait;
+
 @RestController
 public class PetFactController {
 	private final PetFactService petFactService;
@@ -16,6 +18,7 @@ public class PetFactController {
 
 	@GetMapping(value = "/clm/facts", produces = MediaType.APPLICATION_JSON_VALUE)
 	public PetFactResponse getPetFacts() {
+		doWait(50);
 		return petFactService.getPetFacts();
 	}
 }

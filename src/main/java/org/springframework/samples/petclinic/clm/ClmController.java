@@ -18,6 +18,8 @@ import javax.annotation.PostConstruct;
 import java.io.IOException;
 import java.util.Date;
 
+import static org.springframework.samples.petclinic.Util.doWait;
+
 @Controller
 public class ClmController {
 
@@ -150,17 +152,6 @@ public class ClmController {
 	private void setMessage(Model model, String spanName) {
 		model.addAttribute("message",
 			new Date() + ": Look for a span named \"" + spanName + "\" and its children.");
-	}
-
-	/**
-	 * Simple method that waits so the spans take some time to execute.
-	 */
-	private static void doWait() {
-		try {
-			Thread.sleep(200L);
-		} catch (InterruptedException e) {
-			throw new RuntimeException(e);
-		}
 	}
 
 	@PostConstruct

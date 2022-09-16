@@ -10,6 +10,8 @@ import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 
+import static org.springframework.samples.petclinic.Util.doWait;
+
 @Component
 public class DogFactClient {
 	private final ObjectMapper objectMapper;
@@ -20,6 +22,7 @@ public class DogFactClient {
 
 	@Trace
 	public DogFact fetchDogFact() {
+		doWait(50);
 		try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
 			HttpGet get = new HttpGet("https://www.dogfactsapi.ducnguyen.dev/api/v1/facts/?number=1");
 			try (CloseableHttpResponse response = httpClient.execute(get)) {
