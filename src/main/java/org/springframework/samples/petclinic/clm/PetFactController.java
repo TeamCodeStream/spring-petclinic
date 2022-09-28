@@ -18,6 +18,7 @@ public class PetFactController {
 
 	@GetMapping(value = "/clm/facts", produces = MediaType.APPLICATION_JSON_VALUE)
 	public PetFactResponse getPetFacts() {
+		System.out.println("Change something else");
 		doWait(50);
 		return petFactService.getPetFacts();
 	}
