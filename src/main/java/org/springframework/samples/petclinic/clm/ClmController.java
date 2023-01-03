@@ -47,6 +47,10 @@ public class ClmController {
 	public String annotation(Model model) {
 		setMessage(model, "Java/org.springframework.samples.petclinic.clm.ClmController/annotation");
 		annotatedMethod();
+		String nowMillisStr = Long.toString(System.currentTimeMillis());
+		if (nowMillisStr.endsWith("7")) {
+			throw new RuntimeException("Sample error");
+		}
 		doWait();
 		return "welcome";
 	}

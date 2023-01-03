@@ -24,7 +24,7 @@ public class DogFactClient {
 	public DogFact fetchDogFact() {
 		doWait(50);
 		try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
-			HttpGet get = new HttpGet("https://www.dogfactsapi.ducnguyen.dev/api/v1/facts/?number=1");
+			HttpGet get = new HttpGet("https://dog-api.kinduff.com/api/facts?number=1");
 			try (CloseableHttpResponse response = httpClient.execute(get)) {
 				return objectMapper.readValue(response.getEntity().getContent(), DogFact.class);
 			}
