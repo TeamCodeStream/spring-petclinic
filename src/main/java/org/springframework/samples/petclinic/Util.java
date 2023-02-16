@@ -15,4 +15,9 @@ public class Util {
 			// ignore
 		}
 	}
+
+	public static boolean timeForFakeError() {
+		String nowMillisStr = Long.toString(System.currentTimeMillis());
+		return nowMillisStr.endsWith("7");
+	}
 }

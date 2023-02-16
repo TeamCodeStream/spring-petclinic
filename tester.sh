@@ -1,10 +1,8 @@
 #!/bin/bash
 
-logfile="logs/tester.log"
+sleep 10
 
-sleep 5
-
-echo "Running automated tests..." > $logfile
+echo "Running automated tests..."
 
 while true; do
     curl -s -o /dev/null http://localhost:8080/clm/auto-only
@@ -33,7 +31,7 @@ while true; do
     sleep 1
 
     timestamp=$(date +"%F %T,%3N")
-    echo "$timestamp Completed a full set of operations." >> $logfile
+    echo "$timestamp Completed a full set of operations."
 
     # go too fast and the agent starts sampling
     sleep 5

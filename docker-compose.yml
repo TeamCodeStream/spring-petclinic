@@ -2,6 +2,7 @@ version: '3.9'
 
 services: 
   app:
+    restart: always
     image: java-clm-app:latest
     build:
       context: .
@@ -14,5 +15,3 @@ services:
       - 127.0.0.1:8080:8080
     # stdin_open: true
     # tty: true
-    volumes:
-      - "./logs:/app/logs"

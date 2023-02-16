@@ -21,14 +21,14 @@ class ClmJobs(private val ownerRepository: OwnerRepository) {
 
     // Expected CLM - but might be too fast to get recorded
     @Trace(dispatcher = true)
-    @Scheduled(fixedRate = 9000)
+    @Scheduled(fixedRate = 90000)
     protected fun doStuff4() {
         logger.info("doStuff4")
     }
 
     // Expected CLM
     @Trace(dispatcher = true)
-    @Scheduled(fixedRate = 6000)
+    @Scheduled(fixedRate = 60000)
     protected fun doStuff2() {
         logger.info("doStuff2")
         val petTypes = ownerRepository.findPetTypes()
@@ -37,7 +37,7 @@ class ClmJobs(private val ownerRepository: OwnerRepository) {
 
     // Expected CLM
     @Trace(dispatcher = true, metricName = "clmJobs/doStuff3")
-    @Scheduled(fixedRate = 7000)
+    @Scheduled(fixedRate = 70000)
     fun doStuff3() {
         logger.info("doStuff3")
         val petTypes = ownerRepository.findPetTypes()
