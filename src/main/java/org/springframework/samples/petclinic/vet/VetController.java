@@ -15,8 +15,11 @@
  */
 package org.springframework.samples.petclinic.vet;
 
+import java.util.Collection;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -36,6 +39,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 class VetController {
 
 	private final VetRepository vetRepository;
+
+	private static final Logger logger = LoggerFactory.getLogger(VetController.class);
 
 	public VetController(VetRepository clinicService) {
 		this.vetRepository = clinicService;
@@ -72,7 +77,12 @@ class VetController {
 		// Here we are returning an object of type 'Vets' rather than a collection of Vet
 		// objects so it is simpler for JSon/Object mapping
 		Vets vets = new Vets();
-		vets.getVetList().addAll(this.vetRepository.findAll());
+		Collection<Vet> vetList = this.vetRepository.findAll();
+		for (Vet vet : vetList) {
+			String speciality = vet.getSpecialties().get(0).getName();
+			logger.info("Vet {} has speciality {}", vet.getFirstName(), speciality);
+		}
+		vets.getVetList().addAll(vetList);
 		return vets;
 	}
 

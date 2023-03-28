@@ -27,7 +27,11 @@ while true; do
     sleep 1
     curl -s -o /dev/null http://localhost:8080/vets.html
     sleep 1
+    curl -s -o /dev/null http://localhost:8080/vets
+    sleep 1
     curl -s -o /dev/null http://localhost:8080/oups
+    sleep 1
+    curl -s -o /dev/null http://localhost:8080/clm/error
     sleep 1
 
     timestamp=$(date +"%F %T,%3N")

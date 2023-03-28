@@ -12,6 +12,6 @@ services:
       # optional
       NEW_RELIC_HOST: ${NEW_RELIC_HOST:-}
     ports:
-      - 127.0.0.1:8080:8080
+      - 127.0.0.1:8181:8080
     # stdin_open: true
     # tty: true

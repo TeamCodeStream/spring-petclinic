@@ -28,9 +28,11 @@ import static org.springframework.samples.petclinic.Util.timeForFakeError;
 public class ClmController {
 
 	private final OwnerRepository ownerRepository;
+	private final ErrorService errorService;
 
-	public ClmController(OwnerRepository ownerRepository) {
+	public ClmController(OwnerRepository ownerRepository, ErrorService errorService) {
 		this.ownerRepository = ownerRepository;
+		this.errorService = errorService;
 	}
 
 	/**
@@ -44,6 +46,14 @@ public class ClmController {
 		return "welcome";
 	}
 
+	// What happens when error outside of controller
+	@GetMapping("/clm/error")
+	public String error() {
+		MetricService.increaseCount("/clm/error");
+		doWait();
+		errorService.iAmError();
+		return "never";
+	}
 
 	/**
 	 * Besides the auto instrumentation, this also demonstrates a manual trace created by an annotation.
