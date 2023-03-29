@@ -11,7 +11,7 @@ while true; do
     sleep 1
     curl -s -o /dev/null http://localhost:8080/clm/api
     sleep 1
-    curl -s -o /dev/null http://localhost:8080/clm/xml
+    curl -s -o /dev/null http://localhost:8080/clm/xml 
     sleep 1
     curl -s -o /dev/null http://localhost:8080/clm/static
     sleep 1
@@ -29,8 +29,8 @@ while true; do
     sleep 1
     curl -s -o /dev/null http://localhost:8080/vets
     sleep 1
-    curl -s -o /dev/null http://localhost:8080/oups
-    sleep 1
+    # curl -s -o /dev/null http://localhost:8080/oups
+    # sleep 1
     curl -s -o /dev/null http://localhost:8080/clm/error
     sleep 1
 
@@ -38,5 +38,5 @@ while true; do
     echo "$timestamp Completed a full set of operations."
 
     # go too fast and the agent starts sampling
-    sleep 5
+    sleep 10
 done

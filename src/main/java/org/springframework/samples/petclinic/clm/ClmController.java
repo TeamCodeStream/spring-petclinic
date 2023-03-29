@@ -51,7 +51,9 @@ public class ClmController {
 	public String error() {
 		MetricService.increaseCount("/clm/error");
 		doWait();
-		errorService.iAmError();
+		if (timeForFakeError()) {
+			errorService.iAmError();
+		}
 		return "never";
 	}
 
@@ -63,9 +65,6 @@ public class ClmController {
 		MetricService.increaseCount("/clm/annotation");
 		setMessage(model, "Java/org.springframework.samples.petclinic.clm.ClmController/annotation");
 		annotatedMethod();
-		if (timeForFakeError()) {
-			throw new RuntimeException("Sample error");
-		}
 		doWait();
 		return "welcome";
 	}
