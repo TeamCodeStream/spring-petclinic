@@ -11,6 +11,7 @@ services:
       NEW_RELIC_LICENSE_KEY: $NEW_RELIC_LICENSE_KEY
       # optional
       NEW_RELIC_HOST: ${NEW_RELIC_HOST:-}
+      NEW_RELIC_METADATA_COMMIT: ${NEW_RELIC_METADATA_COMMIT}
     ports:
       - 127.0.0.1:8181:8080
     # stdin_open: true
