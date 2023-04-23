@@ -35,7 +35,7 @@ dependencies {
     runtimeOnly 'mysql:mysql-connector-java'
     runtimeOnly 'org.postgresql:postgresql'
     implementation 'org.apache.httpcomponents:httpclient:4.5.13'
-    implementation 'com.newrelic.agent.java:newrelic-api:8.0.0'
+    implementation 'com.newrelic.agent.java:newrelic-api:8.1.0'
     implementation 'io.micrometer:micrometer-core:1.10.3'
 
     //  developmentOnly 'com.newrelic.agent.java:newrelic-java:7.8.0'
