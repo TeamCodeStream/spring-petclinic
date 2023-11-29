@@ -173,6 +173,7 @@ public class ClmController {
 		setMessage(model, "Java/org.springframework.samples.petclinic.clm.ClmController/db");
 		dbMethod();
 		doWait();
+		// changes something
 		return "welcome";
 	}
 
